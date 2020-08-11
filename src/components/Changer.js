@@ -2,26 +2,27 @@ import React, {Component} from 'react';
  import {StyleSheet, Text, View, TextInput, Button} from 'react-native';
  import axios from "axios";
 
+
  class Changer extends Component{
      constructor(props){
          super(props);
 
          this.state = {
-             try : '',
-             usd : '',
-             cad : '',
-             jpy : '',
-             eur : '',
-             input : '',
+             tl : " ",
+             usd : " ",
+             cad : " ",
+             jpy : " ",
+             eur : " ",
+             input : " ",
              rates : []
          }
-         this.getRates = this.getRates.bind();
+         this.getRates = this.getRates.bind(this);
      }
      getRates(){
         axios.get('http://data.fixer.io/api/latest?access_key=a8973e130916ee47a2bcb07d3c403f69&symbols=EUR,USD,TRY,CAD,JPY').then(response => {
            const rates  = response.data.rates;
            this.setState({
-               rates
+               rates:rates
            })
        })
      }
@@ -31,22 +32,26 @@ import React, {Component} from 'react';
      
      render(){
          const {changerWrapper, inputStyle, textStyle} =styles;
-         const {input,tl,usd,cad,jpy,eur,rates} = this.state
+         const {input, tl, usd, cad, jpy, eur, rates} = this.state;
          return(
              <View style={changerWrapper}>
                  <TextInput placeholder='Enter euro value'
                                 style = {inputStyle} 
-                                // keyboardType = 'numeric';
+                                keyboardType = 'numeric'
                                 onChange = {(text) =>{
-                                    const i = parseFloat(text) 
+                                    
+                                    const i = parseFloat(text.target.value);
+                                    
                                     this.setState({
                                         input :text,
-                                        tl :(i * rates[TRY]),
-                                        usd :(i * rates[USD]),
-                                        cad :(i * rates[CAD]),
-                                        jpy:(i * rates[JPY]),
-                                        eur :(i * rates[EUR])
+                                        tl  :(i*rates['TRY']),
+                                        usd :(i*rates['USD']),
+                                        cad :(i*rates['CAD']),
+                                        jpy :(i*rates['JPY']),
+                                        eur :(i*rates['EUR']),
+                                        
                                     })
+                                   
                                 }}
                                 value={input} />
 
