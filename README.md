@@ -1,5 +1,5 @@
 # CurrencyChanger
-![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Indie+Flower&color=47F763&size=30&lines=Currency+Converter!)
+![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Indie+Flower&color=aqua&size=30&lines=Currency+Converter!)
 ### This is a currency converter mobile application which is developed by using react-native
 # How to clone:
 
