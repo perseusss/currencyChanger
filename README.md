@@ -4,7 +4,12 @@
 # How to clone:
 
 ### 1. Clone the repository :
+
+![Ekran Resmi 2022-04-23 19 07 22](https://user-images.githubusercontent.com/56348345/164960653-e2c164c8-d866-46db-99c3-992f38983839.png)
+
+
 `git clone https://github.com/umutlaguler/CurrencyChanger.git`
+
 
 ### 2. Install dependencies :
 `npm install` or `yarn install`
